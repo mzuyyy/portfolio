@@ -6,6 +6,12 @@ Nội dung dựa trên CV_AI_E.pdf được cung cấp và README của AI20K-Bu
 
 Cảm hứng bố cục/pixel từ https://hoanglinh24.io.vn/; triển khai giao diện và minh họa riêng, không sao chép tài sản hoặc thông tin cá nhân của chủ website tham khảo.
 
-## Publish
+## GitHub Pages
 
-Cấu hình Sites nằm trong .openai/hosting.json, output tĩnh là dist/. Khi thay đổi source, đồng bộ index.html, style.css, script.js và assets/favicon.svg sang dist/ trước khi đóng gói và xuất bản. Giữ nguyên project_id để cập nhật URL hiện tại.
+Website: https://mzuyyy.github.io/portfolio/
+
+GitHub Pages xuất bản trực tiếp từ thư mục gốc của nhánh `master`. Mỗi lần push thay đổi lên nhánh này, GitHub tự cập nhật website. File `.nojekyll` cho phép phục vụ HTML/CSS/JavaScript thuần, không qua Jekyll.
+
+Sửa `index.html`, `style.css`, `script.js` và `assets/` để cập nhật nội dung. Các đường dẫn tài nguyên dùng dạng tương đối để hoạt động dưới `/portfolio/`.
+
+Thư mục `dist/` và `.openai/hosting.json` thuộc cấu hình hosting trước đây; GitHub Pages dùng các file ở thư mục gốc.
