@@ -12,13 +12,13 @@ navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', 
 const themeButton = document.querySelector('#theme-toggle');
 function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
-  themeButton.textContent = theme === 'dark' ? '[ Sáng ]' : '[ Tối ]';
+  themeButton.textContent = theme === 'dark' ? 'Sáng' : 'Tối';
   themeButton.setAttribute('aria-label', theme === 'dark' ? 'Chuyển sang giao diện sáng' : 'Chuyển sang giao diện tối');
-  document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#101827' : '#f4f8ff';
+  document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#171e19' : '#f5f6f2';
 }
 try {
   const storedTheme = localStorage.getItem('duy-theme');
-  setTheme(storedTheme === 'dark' || (storedTheme === null && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light');
+  setTheme(storedTheme === 'dark' ? 'dark' : 'light');
 } catch {
   setTheme('light');
 }
