@@ -12,8 +12,8 @@ navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', 
 const themeButton = document.querySelector('#theme-toggle');
 function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
-  themeButton.textContent = theme === 'dark' ? 'Sáng' : 'Tối';
-  themeButton.setAttribute('aria-label', theme === 'dark' ? 'Chuyển sang giao diện sáng' : 'Chuyển sang giao diện tối');
+  themeButton.textContent = theme === 'dark' ? 'Light' : 'Dark';
+  themeButton.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
   document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#171e19' : '#f5f6f2';
 }
 try {
@@ -36,10 +36,10 @@ document.querySelectorAll('.filter').forEach(button => button.addEventListener('
   cards.forEach(card => { card.hidden = button.dataset.filter !== 'all' && card.dataset.category !== button.dataset.filter; });
 }));
 const projects = [
-  { title: 'UEBA Endpoint Monitoring', meta: 'TEAM PROJECT / AI20K BUILD COHORT 2', description: 'Dự án nhóm phát hiện hành vi bất thường của user/device từ endpoint logs, hướng tới các tình huống insider threat và account compromise.', points: ['Pipeline: endpoint collectors → FastAPI → chuẩn hóa logs → GCN-LSTM + Last Position Attention + FAISS → anomaly score và alerts.', 'LLM giải thích cảnh báo dựa trên evidence, kết hợp multi-turn chat và memory. LLM hỗ trợ phân tích, không thay thế anomaly detection.', 'Dashboard React + TypeScript, PostgreSQL, JWT/RBAC và endpoint agent có SQLite buffer. Hệ thống đi kèm tài liệu triển khai và bộ kiểm thử.'], tags: ['FastAPI', 'React', 'PostgreSQL', 'GCN-LSTM', 'FAISS', 'LLM'], repo: 'https://github.com/AI20K-Build-Cohort-2/C2-App-047' },
-  { title: 'Skeleton-based Human Action Recognition', meta: 'INDIVIDUAL PROJECT / 2026', description: 'Pipeline nhận dạng hành động từ skeleton sử dụng ST-GCN, đánh giá trên NTU RGB+D 60 theo giao thức Cross-Subject (XSub).', points: ['Chuẩn hóa chuỗi COCO-17 với tọa độ và keypoint confidence, uniform frame sampling và định dạng Person × Time × Joint × Channel.', 'Thử nghiệm Joint và Joint Motion streams, kết hợp xác suất lớp bằng score-level late fusion.', 'Tích hợp person detection → MMPose → preprocessing → ST-GCN. Suy luận sliding-window cùng temporal smoothing; khảo sát domain gap giữa skeleton huấn luyện và pose trích từ video thật.'], tags: ['PyTorch', 'ST-GCN', 'MMPose', 'COCO-17', 'NTU RGB+D 60'], repo: 'https://github.com/mzuyyy/Human-action-recognition' },
-  { title: 'BirdCLEF 2025: Birdcall Identification', meta: 'INDIVIDUAL KAGGLE PROJECT / 2025', description: 'Pipeline phân loại tiếng chim trong soundscape nhiệt đới có nhiều nhiễu, tập trung giảm false positives do tiếng người.', points: ['Tiền xử lý bằng human-voice filtered spectrograms để giảm nhiễu giọng nói.', 'Huấn luyện EfficientNet-B0 bằng PyTorch, sử dụng FocalBCE Loss và label smoothing để xử lý mất cân bằng lớp và nhãn nhiễu.', 'Đạt private score cao nhất 0.8 và public score 0.799.'], tags: ['Audio Classification', 'EfficientNet-B0', 'PyTorch', 'FocalBCE'], repo: 'https://www.kaggle.com/code/duymaingoc/birdclef-2025-s-submission', linkLabel: 'Xem notebook Kaggle ↗' },
-  { title: 'Sino-Nom Character Recognition', meta: 'GROUP PROJECT / MEMBER / 2023', description: 'Hệ thống OCR hỗ trợ số hóa và bảo tồn tư liệu Hán Nôm từ bản thảo lịch sử.', points: ['Phân tích và tiền xử lý hai bộ dữ liệu, xử lý ký tự phức tạp và dữ liệu ít tài nguyên.', 'Triển khai, đánh giá ResNet-18, ResNet-34 và ResNet-50 để cân bằng độ chính xác và hiệu năng.', 'Đạt độ chính xác phân loại cao nhất 80%. Tham gia với vai trò thành viên dự án nhóm.'], tags: ['OCR', 'ResNet-18/34/50', 'Data Preprocessing'], repo: 'https://github.com/huynq2k4/Sino-Nom-recognition/tree/main' },
+  { title: 'UEBA Endpoint Monitoring', meta: 'TEAM PROJECT / AI20K BUILD COHORT 2', description: 'A team project detecting anomalous user and device behavior in endpoint logs, focusing on insider threats and account compromise.', points: ['Pipeline: endpoint collectors → FastAPI → log normalization → GCN-LSTM + Last Position Attention + FAISS → anomaly scores and alerts.', 'Evidence-based LLM alert explanations with multi-turn chat and memory. The LLM supports analysis rather than replacing anomaly detection.', 'A React + TypeScript dashboard, PostgreSQL, JWT/RBAC, and an endpoint agent with SQLite buffering. Includes deployment documentation and a test suite.'], tags: ['FastAPI', 'React', 'PostgreSQL', 'GCN-LSTM', 'FAISS', 'LLM'], repo: 'https://github.com/AI20K-Build-Cohort-2/C2-App-047' },
+  { title: 'Skeleton-based Human Action Recognition', meta: 'INDIVIDUAL PROJECT / 2026', description: 'A skeleton-based action recognition pipeline using ST-GCN, evaluated on NTU RGB+D 60 under the Cross-Subject (XSub) protocol.', points: ['Normalized COCO-17 sequences with coordinates and keypoint confidence, uniform frame sampling, and Person × Time × Joint × Channel formatting.', 'Explored Joint and Joint Motion streams, combining class probabilities through score-level late fusion.', 'Integrated person detection → MMPose → preprocessing → ST-GCN. Implemented sliding-window inference with temporal smoothing and investigated the domain gap between training skeletons and poses extracted from real videos.'], tags: ['PyTorch', 'ST-GCN', 'MMPose', 'COCO-17', 'NTU RGB+D 60'], repo: 'https://github.com/mzuyyy/Human-action-recognition' },
+  { title: 'BirdCLEF 2025: Birdcall Identification', meta: 'INDIVIDUAL KAGGLE PROJECT / 2025', description: 'A birdcall classification pipeline for noisy tropical soundscapes, focused on reducing false positives caused by human speech.', points: ['Preprocessed audio with human-voice filtered spectrograms to reduce speech interference.', 'Trained EfficientNet-B0 in PyTorch with FocalBCE Loss and label smoothing to address class imbalance and noisy labels.', 'Achieved a peak private score of 0.8 and a public score of 0.799.'], tags: ['Audio Classification', 'EfficientNet-B0', 'PyTorch', 'FocalBCE'], repo: 'https://www.kaggle.com/code/duymaingoc/birdclef-2025-s-submission', linkLabel: 'View Kaggle notebook ↗' },
+  { title: 'Sino-Nom Character Recognition', meta: 'GROUP PROJECT / MEMBER / 2023', description: 'An OCR system for digitizing and preserving Sino-Nom texts from historical manuscripts.', points: ['Analyzed and preprocessed two datasets, addressing complex characters and limited training data.', 'Implemented and evaluated ResNet-18, ResNet-34, and ResNet-50 to balance accuracy and performance.', 'Achieved a peak classification accuracy of 80%. Contributed as a team member.'], tags: ['OCR', 'ResNet-18/34/50', 'Data Preprocessing'], repo: 'https://github.com/huynq2k4/Sino-Nom-recognition/tree/main' },
 ];
 const dialog = document.querySelector('#project-dialog');
 document.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => {
@@ -55,7 +55,7 @@ document.querySelectorAll('[data-project]').forEach(button => button.addEventLis
   }));
   const repoLink = document.querySelector('#dialog-repo');
   repoLink.hidden = !project.repo;
-  repoLink.textContent = project.linkLabel || 'Xem repository ↗';
+  repoLink.textContent = project.linkLabel || 'View repository ↗';
   if (project.repo) repoLink.href = project.repo; else repoLink.removeAttribute('href');
   dialog.showModal();
 }));
@@ -68,7 +68,7 @@ dialog.addEventListener('click', event => {
 document.querySelector('#copy-email').addEventListener('click', async event => {
   const email = event.currentTarget.dataset.email;
   const status = document.querySelector('#copy-status');
-  try { await navigator.clipboard.writeText(email); status.textContent = 'Đã sao chép email.'; }
-  catch { status.textContent = `Sao chép thủ công: ${email}`; }
+  try { await navigator.clipboard.writeText(email); status.textContent = 'Email copied.'; }
+  catch { status.textContent = `Copy manually: ${email}`; }
 });
 document.querySelector('#year').textContent = String(new Date().getFullYear());
