@@ -11,3 +11,6 @@ Hero: name and role, large left-aligned Vietnamese statement, brief introduction
 
 ## Behavior and accessibility
 Preserve all project links, full details, light/dark theme, native dialog, filters and clipboard feedback. Focus-visible, touch targets minimum 44px, reduced-motion support. No fake metrics, invented experience, source commentary or external dependencies at runtime. Self-hosted font license in assets/fonts/OFL.txt. GitHub Pages remains deployment target.
+
+## Project thumbnail update
+UEBA: deep navy #182f46, endpoint correlation graph and analyst alert. Human Action Recognition: coral #f2ddd4 with all 17 COCO joints (five face, six upper limb, six lower limb). SVG assets scale independently and retain their project-specific palettes across both themes.
